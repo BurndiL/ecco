@@ -1,0 +1,26 @@
+plugins {
+    alias(libs.plugins.openjfx.javafxplugin)
+    id 'java'
+}
+
+ecco.adapter = true
+
+javafx {
+    version = libs.versions.javafx.get()
+    modules = ['javafx.base', 'javafx.controls', 'javafx.graphics', 'javafx.swing', 'javafx.web']
+}
+
+dependencies {
+    implementation project(':ecco-service')
+
+    implementation 'de.monticore.lang.sysml_v2:language:7.8.79'
+    implementation 'de.monticore:monticore-runtime:7.8.0'
+
+    //for serialization
+    implementation 'com.thoughtworks.xstream:xstream:1.4.21'
+
+    //for drawing UML of sysml
+    implementation 'net.sourceforge.plantuml:plantuml:1.2026.0'
+}
+
+sourceSets.main.compileClasspath += configurations.runtimeClasspath

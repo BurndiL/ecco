@@ -9,3 +9,5 @@
 * The [*C Variants Example*](c_variants) consists of eight variants of a small, multi-file C program, covering every combination of three optional features.
 * The [*Markdown Docs Variants Example*](markdown_docs_variants) consists of twelve variants of a fictional CLI tool's documentation, covering nine optional features that add sections, list items, code blocks, blockquotes, and GFM table rows.
 * The [*Proactive Traces Variants Example*](proactive_traces_variants) consists of two variants of a tiny C program with a VEVOS presence-condition file (a proactive feature trace), and shows what boosting does with a trace that annotates only part of a feature.
+* The [*SysML Variants Example*](sysml_variants) consists of ten SysML v2 vehicle-model variants covering independent seating, powertrain, battery, and safety features.
+* The [*SysML v2 Features Example*](sysml_features) demonstrates structural, interaction, behavioral, and analysis constructs across five progressively richer sensor-system variants.

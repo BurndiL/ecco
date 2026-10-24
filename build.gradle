@@ -20,6 +20,10 @@ allprojects {
 
 	repositories {
 		mavenCentral()
+		maven {
+			// needed for SysMLv2 Parser
+			url = "https://nexus.se.rwth-aachen.de/content/groups/public"
+		}
 	}
 }
 

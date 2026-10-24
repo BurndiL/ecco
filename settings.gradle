@@ -23,6 +23,7 @@ include 'adapter-runtime'
 include 'adapter-golang'
 include 'adapter-lilypond'
 include 'extras-ly'
+include 'adapter-sysmlv2'
 
 project(':base').projectDir = file('base')
 project(':service').projectDir = file('service')
@@ -46,5 +47,6 @@ project(':adapter-typescript').projectDir = file('adapter/typescript')
 project(':adapter-runtime').projectDir = file('adapter/runtime')
 project(':adapter-golang').projectDir = file('adapter/golang')
 project(':adapter-c').projectDir = file('adapter/c')
+project(':adapter-sysmlv2').projectDir = file('adapter/sysmlv2')
 
 rootProject.children.each { it.name = rootProject.name + '-' + it.name }

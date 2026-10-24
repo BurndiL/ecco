@@ -72,6 +72,7 @@ dependencies {
 	runtimeOnly project(':ecco-adapter-cpp')
 	runtimeOnly project(':ecco-adapter-runtime')
 	runtimeOnly project(':ecco-adapter-golang')
+	runtimeOnly project(':ecco-adapter-sysmlv2')
 
 	// builds small Git histories for the Git import tests
 	testImplementation libs.jgit

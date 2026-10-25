@@ -102,6 +102,7 @@ public class SysMLVisitor implements SysMLPartsVisitor2, SysMLConstraintsVisitor
 
         Node.Op childNode = this.entityFactory.createNode(artifact);
         curNode.addChild(childNode);
+        curNode = childNode;
     }
 
     @Override

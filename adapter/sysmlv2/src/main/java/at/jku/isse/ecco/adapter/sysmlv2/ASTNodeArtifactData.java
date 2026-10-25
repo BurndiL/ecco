@@ -5,6 +5,7 @@ import de.monticore.ast.ASTNode;
 import de.monticore.lang.sysmlparts._ast.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 public record ASTNodeArtifactData(String name, String data) implements ArtifactData {
     private static final long serialVersionUID = -5846113510938625687L;
@@ -16,6 +17,7 @@ public record ASTNodeArtifactData(String name, String data) implements ArtifactD
 
     @Override
     public int hashCode() {
+        //TODO: make more accurate
         ASTNode myNode = ASTSerializer.deserialize(data);
         return Objects.hash(myNode.getClass(), name());
     }
@@ -28,25 +30,26 @@ public record ASTNodeArtifactData(String name, String data) implements ArtifactD
         if (Objects.equals(data, that.data)) return true;
         ASTNode myNode = ASTSerializer.deserialize(data);
         ASTNode thatNode = ASTSerializer.deserialize(that.data);
+        if (myNode.getClass() != thatNode.getClass()) return false;
         if (Objects.equals(myNode, thatNode)) return true;
 
         //TODO: make this more accurate
-        var myData = switch (myNode){
-            case ASTPartDef a -> a.getName();
-            case ASTPartUsage a -> a.getName();
-            case ASTSysMLPackage a -> a.getName();
-            case ASTAttributeDef a -> a.getName();
-            case ASTAttributeUsage a -> a.getName();
-            default -> "this";
+        Set<Object> myData = switch (myNode){
+            case ASTPartDef a -> Set.of(a.getName());
+            case ASTPartUsage a -> Set.of(a.getName());
+            case ASTSysMLPackage a -> Set.of(a.getName());
+            case ASTAttributeDef a -> Set.of(a.getName());
+            case ASTAttributeUsage a -> Set.of(a.getName());
+            default -> Set.of("this");
         };
 
-        var thatData = switch (thatNode){
-            case ASTPartDef a -> a.getName();
-            case ASTPartUsage a -> a.getName();
-            case ASTSysMLPackage a -> a.getName();
-            case ASTAttributeDef a -> a.getName();
-            case ASTAttributeUsage a -> a.getName();
-            default -> "that";
+        Set<Object> thatData = switch (thatNode){
+            case ASTPartDef a -> Set.of(a.getName());
+            case ASTPartUsage a -> Set.of(a.getName());
+            case ASTSysMLPackage a -> Set.of(a.getName());
+            case ASTAttributeDef a -> Set.of(a.getName());
+            case ASTAttributeUsage a -> Set.of(a.getName());
+            default -> Set.of("that");
         };
 
         return Objects.equals(myData, thatData);
